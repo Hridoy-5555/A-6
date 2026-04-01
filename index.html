@@ -61,10 +61,7 @@
     </div>
     <h1 class="text-[48px] font-bold mb-4 leading-tight">Supercharge Your <br> Digital Workflow</h1>
     <p class="mb-4 text-gray-600">Access premium AI tools, design assets, templates, and productivity <br>
-software—all in one place. Start creating faster today.<br>
-
-Explore Products
-</p>
+software—all in one place. Start creating faster today.</p>
     <div class="flex gap-4">
       <button onclick="showProducts()" class="bg-purple-600 text-white px-6 py-2.5 rounded-xl shadow-md font-semibold hover:bg-purple-700 transition transform hover:-translate-y-1">
         Explore Products
@@ -96,10 +93,10 @@ Explore Products
 <div id="productsSection" class="grid md:grid-cols-3 gap-6 px-[200px]"></div>
 
 
-<div id="cartSection" class="hidden max-w-xl mx-auto bg-white p-6 shadow rounded">
+<div id="cartSection" class="hidden max-w-xl mx-auto bg-white p-8 shadow-2xl rounded-2xl">
   <h2 class="text-xl font-bold mb-4">Your Cart</h2>
-  <div id="cartItems"></div>
-  <h3 class="mt-4 font-bold">Total: $<span id="total">0</span></h3>
+  <div id="cartItems" class="flex flex-col gap-3"></div>
+  <h3 class="mt-6 text-lg font-bold border-t pt-4 flex justify-between">Total: <span>$<span id="total">0</span></span></h3>
   <button onclick="checkout()" class="gradient text-white w-full mt-4 py-2 rounded hover:opacity-90 transition-all duration-300 transform hover:scale-[1.02]">
     Proceed to Checkout
   </button>
@@ -266,13 +263,16 @@ function updateCart(){
   cart.forEach((item,i)=>{
     total+=item.price;
     cartItems.innerHTML+=`
-    <div class="flex justify-between border p-2 mb-2">
+    <div class="flex justify-between items-center border-b pb-2">
       <div class="flex items-center">
-        <i class="${item.icon} text-xl text-purple-600 mr-3"></i>
-        <span>${item.name}</span>
+        <i class="${item.icon} text-lg text-purple-600 w-8"></i>
+        <span class="font-medium">${item.name}</span>
       </div>
-      <div>$${item.price}
-        <button onclick="removeItem(${i})" class="text-red-500 ml-2 hover:text-red-700 transition-colors">X</button>
+      <div class="flex items-center gap-4">
+        <span class="text-gray-600">$${item.price}</span>
+        <button onclick="removeItem(${i})" class="text-red-500 hover:text-red-700 transition-colors p-1">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
       </div>
     </div>`;
   });
