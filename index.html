@@ -40,10 +40,10 @@
     <a href="#faq" class="hover:text-purple-600 transition">FAQ</a>
   </nav>
   <div class="flex items-center gap-3">
-    <button onclick="showCart()" class="bg-purple-600 text-white px-4 py-2 rounded">
+    <button onclick="showCart()" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors duration-300">
       <i class="fa-solid fa-cart-shopping mr-2"></i>Cart (<span id="cartCount">0</span>)
     </button>
-    <button class="bg-gray-900 text-white px-4 py-2 rounded">Get Started</button>
+    <button class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-black transition-colors duration-300">Get Started</button>
   </div>
 </div>
 
@@ -88,8 +88,8 @@ Explore Products
 
 <!-- TOGGLE -->
 <div class="text-center my-6 px-[200px]">
-  <button onclick="showProducts()" class="bg-purple-600 text-white px-4 py-2 rounded mx-2">Products</button>
-  <button onclick="showCart()" class="bg-gray-800 text-white px-4 py-2 rounded mx-2">Cart</button>
+  <button onclick="showProducts()" class="bg-purple-600 text-white px-4 py-2 rounded mx-2 hover:bg-purple-700 transition-colors duration-300">Products</button>
+  <button onclick="showCart()" class="bg-gray-800 text-white px-4 py-2 rounded mx-2 hover:bg-gray-900 transition-colors duration-300">Cart</button>
 </div>
 
 <!-- PRODUCTS -->
@@ -100,7 +100,7 @@ Explore Products
   <h2 class="text-xl font-bold mb-4">Your Cart</h2>
   <div id="cartItems"></div>
   <h3 class="mt-4 font-bold">Total: $<span id="total">0</span></h3>
-  <button onclick="checkout()" class="gradient text-white w-full mt-4 py-2 rounded">
+  <button onclick="checkout()" class="gradient text-white w-full mt-4 py-2 rounded hover:opacity-90 transition-all duration-300 transform hover:scale-[1.02]">
     Proceed to Checkout
   </button>
 </div>
@@ -237,7 +237,7 @@ function loadProducts(){
       <ul class="text-sm my-2">
         ${p.features.map(f=>`<li>✔ ${f}</li>`).join("")}
       </ul>
-      <button onclick="addToCart(${p.id})" class="gradient text-white w-full py-2 rounded">
+      <button onclick="addToCart(${p.id})" class="gradient text-white w-full py-2 rounded hover:opacity-90 transition-all duration-300 transform hover:scale-[1.02]">
         <i class="fa-solid fa-cart-plus mr-2"></i>Buy Now
       </button>
     </div>
@@ -272,7 +272,7 @@ function updateCart(){
         <span>${item.name}</span>
       </div>
       <div>$${item.price}
-        <button onclick="removeItem(${i})" class="text-red-500 ml-2">X</button>
+        <button onclick="removeItem(${i})" class="text-red-500 ml-2 hover:text-red-700 transition-colors">X</button>
       </div>
     </div>`;
   });
